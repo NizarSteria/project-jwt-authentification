@@ -1,0 +1,20 @@
+<div class="container">
+    <h1>User detail</h1>
+    <div class="profil">
+        <img width="128" height="128" ng-src="images/Icon-user.png" alt="user picture" class="img-rounded">
+        <div class="infos">
+            <ul>
+                <li><span>id: </span> {{user.id}}</li>
+                <li><span>login: </span>{{user.login}}</li>
+                <li><span>address: </span>{{user.address}}</li>
+                <li><span>email: </span>{{user.email}}</li>              
+            </ul>
+            
+        </div>
+        <div class="actions">
+            <a class="btn btn-lg btn-success" ng-href="#/edit/{{user.id}}">Modify</a>
+            <a class="btn btn-lg btn-success"  ng-click="delete()">Delete</a>
+        </div>
+    </div>
+</div>
+
