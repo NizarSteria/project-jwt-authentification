@@ -1,0 +1,20 @@
+
+<div class="container">
+    <h1>Ressource detail</h1>
+    <form name=projetForm" class="my-form" novalidate>
+        <div class="form-group">
+            <label for="name">Prestataire *</label>
+            <input type="text" class="form-control" id="prestataire" placeholder="prestataire" ng-model="ressource.prestataire" required>
+        </div>
+       
+        <div class="form-group">
+            <label for="name">id Tjm societe profil *</label>
+            <input type="text" class="form-control" id="idTjmSocieteProfil" placeholder="id Tjm societe profi" ng-model="ressource.idTjmSocieteProfil" required>
+        </div>
+         
+        
+    </form>
+    <div class="actions">
+        <a class="btn btn-lg btn-success" ng-disabled="projetForm.$invalid"  ng-click="submit()">{{getBtnLabel()}}</a>
+    </div>
+</div>

@@ -1,39 +1,43 @@
 <div class="container">
-    <div class="">
-        <form class="form-inline" role="form">
-            <div class="form-group">
-                <label class="sr-only" for="search">Filter</label>
-                <input id="search" type="text" class="form-control" placeholder="Filter ..." ng-model="search">
-            </div>
-        </form>
-    </div>
+	<div class="">
+		<form class="form-inline" role="form">
+			<div class="form-group">
+				<label class="sr-only" for="search">Filter</label> <input
+					id="search" type="text" class="form-control"
+					placeholder="Filter ..." ng-model="search">
+			</div>
+		</form>
+	</div>
 
 
-    <h2 class="page-header">{{users.length}} users found</h2>
-
-    <div class="table-responsive">
-        <table class="table table-striped">
-            <thead>
-            <tr>
-                <th>id</th>
-                <th>login</th>
-                <th>address</th>
-                <th>email</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr ng-repeat="user in users | filter:search">
-                <td>{{user.id}}</td>
-                <td><a href="#/user/{{user.id}}">{{user.login}}</a></td>
-                <td>{{user.address}}</td>
-                <td>{{user.email}}</td>
-            </tr>            
-            </tbody>
-        </table>
-        <div class="actions">
-            <a class="btn btn-lg btn-success" ng-href="#/edit/">Ajouter</a>
-        </div>
-    </div>
+	<h2 class="page-header">{{projets.length}} projets found</h2>
+	 
+	<div class="table-responsive">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Id</th>
+					<th>Code</th>
+					<th>Date de debut</th>
+					<th>Date de fin</th>
+					<th>Description</th>
+					<th>Budget totale</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="projet in projets | filter:search">
+					<td>{{projet.idProjet}}</td>
+					<td><a href="#/projet/{{projet.idProjet}}">{{projet.codeProjet}}</a></td>
+					<td>{{projet.dateDebut}}</td>
+					<td>{{projet.dateFin}}</td>
+					<td>{{projet.descProjet}}</td>
+					<td>{{projet.budgetTotal}}</td>
+				</tr>
+			</tbody>
+		</table>
+		<div class="actions">
+			<a class="btn btn-lg btn-success" ng-href="#/edit/">Ajouter</a>
+		</div>
+	</div>
 </div>
 
- 

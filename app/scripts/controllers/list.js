@@ -1,9 +1,9 @@
 'use strict';
 
 angular.module('myAdminApp')
-  .controller('ListCtrl', function ($scope,User) {
+  .controller('ListCtrl', function ($scope,Projet) {
 
-	  User.loadUsers().success(function(resp){
-	        $scope.users = resp;
+	  Projet.loadProjets().success(function(resp){
+	        $scope.projets = resp;
 	    });  
   });

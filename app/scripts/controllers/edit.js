@@ -1,14 +1,14 @@
 'use strict';
 
 angular.module('myAdminApp')
-  .controller('EditCtrl', function ($scope,User,$routeParams,$location) {
+  .controller('EditCtrl', function ($scope,Projet,$routeParams,$location) {
 
 	  $scope.state = "new";
-      //Check if we have a user
+      //Check if we have a projet
       if ($routeParams.id) {
           $scope.state = "update";
-          User.findById($routeParams.id).then(function (response) {
-              $scope.user = response.data;
+          Projet.findById($routeParams.id).then(function (response) {
+              $scope.projet = response.data;
           })
       }
       $scope.getBtnLabel=function(){
@@ -16,10 +16,10 @@ angular.module('myAdminApp')
       };
 	  $scope.submit=function(){
           if($scope.state = "new"){
-        	  User.createUser($scope.user);
+        	  Projet.createProjet($scope.projet);
           }
           else{
-        	  User.update($scope.user);
+        	  Projet.update($scope.projet);
           }
           $location.path('/list');
       }	 

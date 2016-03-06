@@ -1,50 +1,67 @@
 <html ng-app="myAdminApp">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title></title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width">
-    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-    <!-- build:css styles/vendor.css -->
-    <!-- bower:css -->
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
-    <!-- endbower -->
-    <!-- endbuild -->
-    <!-- build:css({.tmp,app}) styles/main.css -->
-    <link rel="stylesheet" href="styles/main.css">
-    <!-- endbuild -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title></title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width">
+<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+<!-- build:css styles/vendor.css -->
+<!-- bower:css -->
+<link rel="stylesheet"
+	href="bower_components/bootstrap/dist/css/bootstrap.css" />
+<!-- endbower -->
+<!-- endbuild -->
+<!-- build:css({.tmp,app}) styles/main.css -->
+<link rel="stylesheet" href="styles/main.css">
+<!-- endbuild -->
 </head>
 <body>
-<div class="container">
-    <div class="header">
-        <ul class="nav nav-pills pull-right">
-            <li><a href="#/">Home</a></li>
-            <li><a href="#/list">all users</a></li>
-            <li><a href="#/edit">edit</a></li>
-            <li><a href="#/user/1">a user</a></li>
-            <li><a href="#/help">Help</a></li>
-        </ul>
-        <h3 class="text-muted">Angular admin</h3>
-    </div>
-</div>
+	<div class="container">
+		<div class="header">
+			<ul class="nav nav-pills pull-right">
+				<li><a href="#/">Home</a></li>
+				<li><a href="#/list">all projets</a></li>
+				<!--             <li><a href="#/edit">edit</a></li> -->
+				<!--             <li><a href="#/projet/1">a projet</a></li> -->
+				<li><a href="#/ressources">all ressources</a></li>
+				<li><a href="#/ressources">all users</a></li>
+				<!--             <li><a href="#/editRessource">edit ressource</a></li> -->
+				<!--             <li><a href="#/ressource/1">a ressource</a></li> -->
+				<li><a href="#/help">Help</a></li>
 
-<!-- partie principale -->
-<section class="container" ng-view></section>
+			</ul>
+			<h3 class="text-muted">Outil de gestion</h3>
+		</div>
+	</div>
 
-<script type="text/javascript" src="bower_components/jquery/jquery.js"></script>
-<script type="text/javascript" src="bower_components/angular/angular.js"></script>
-<script type="text/javascript" src="bower_components/angular-route/angular-route.js"></script>
-<script type="text/javascript" src="bower_components/angular-i18n/angular-locale_fr-fr.js"></script>
-<script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
-<script type="text/javascript" src="scripts/app.js"></script>
-<script src="scripts/controllers/main.js"></script>
-<script src="scripts/controllers/list.js"></script>
-<script src="scripts/controllers/user.js"></script>
-<script src="scripts/controllers/edit.js"></script>
-<script type="text/javascript" src="scripts/services/services.js"></script>
-<!-- <script type="text/javascript" src="scripts/filters.js"></script> -->
-<!-- <script type="text/javascript" src="scripts/directives.js"></script> -->
+	<!-- partie principale -->
+	<section class="container" ng-view></section>
+
+	<script type="text/javascript" src="bower_components/jquery/jquery.js"></script>
+	<script type="text/javascript"
+		src="bower_components/angular/angular.js"></script>
+	<script type="text/javascript"
+		src="bower_components/angular-route/angular-route.js"></script>
+	<script type="text/javascript"
+		src="bower_components/angular-i18n/angular-locale_fr-fr.js"></script>
+	<script type="text/javascript"
+		src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+	<script type="text/javascript" src="scripts/app.js"></script>
+	<script src="scripts/controllers/main.js"></script>
+	<script src="scripts/controllers/list.js"></script>
+	<script src="scripts/controllers/projet.js"></script>
+	<script src="scripts/controllers/edit.js"></script>
+	<script src="scripts/controllers/ressources.js"></script>
+	<script src="scripts/controllers/editRessource.js"></script>
+	<script src="scripts/controllers/ressource.js"></script>
+	<script type="text/javascript" src="scripts/services/services.js"></script>
+	<script type="text/javascript"
+		src="scripts/services/servicesressources.js"></script>
+		<script type="text/javascript"
+		src="scripts/services/usersservices.js"></script>
+	<!-- <script type="text/javascript" src="scripts/filters.js"></script> -->
+	<!-- <script type="text/javascript" src="scripts/directives.js"></script> -->
 
 </body>
 </html>

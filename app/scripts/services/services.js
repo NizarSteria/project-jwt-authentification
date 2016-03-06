@@ -1,19 +1,19 @@
 "use strict";
 
-myAdminApp.factory("User", function ($http) {
-    var API_URI = '/api/users';
+myAdminApp.factory("Projet", function ($http) {
+       var API_URI = '/projets';
 
     return {
 
-    	loadUsers : function() {
+    	loadProjets : function() {
             return $http.get(API_URI);
         },
 
-        createUser : function(user) {
-            return  $http.post(API_URI, user);
+        createProjet : function(projet) {
+            return  $http.post(API_URI, projet);
         },
 
-        deleteUser  : function(id) {
+        deleteProjet  : function(id) {
             return $http.delete(API_URI + '/' + id);
         },
 
@@ -21,8 +21,8 @@ myAdminApp.factory("User", function ($http) {
             return $http.get(API_URI + '/' + id);
         },
 
-        update : function(movie) {
-             return $http.put(API_URI, user);
+        update : function(projet) {
+             return $http.put(API_URI, projet);
         }
 
     };
