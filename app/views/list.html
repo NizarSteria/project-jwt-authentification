@@ -16,7 +16,7 @@
 		<table class="table table-striped">
 			<thead>
 				<tr>
-					<th>Id</th>
+<!-- 					<th>Id</th> -->
 					<th>Code</th>
 					<th>Date de debut</th>
 					<th>Date de fin</th>
@@ -26,10 +26,10 @@
 			</thead>
 			<tbody>
 				<tr ng-repeat="projet in projets | filter:search">
-					<td>{{projet.idProjet}}</td>
+<!-- 					<td>{{projet.idProjet}}</td> -->
 					<td><a href="#/projet/{{projet.idProjet}}">{{projet.codeProjet}}</a></td>
-					<td>{{projet.dateDebut}}</td>
-					<td>{{projet.dateFin}}</td>
+					<td>{{projet.dateDebut|date: "yyyy-MM-dd"}}</td>
+					<td>{{projet.dateFin | date: "yyyy-MM-dd"}}</td>
 					<td>{{projet.descProjet}}</td>
 					<td>{{projet.budgetTotal}}</td>
 				</tr>

@@ -9,11 +9,11 @@ angular.module('myAdminApp')
 	    });  
   });
 
-angular.module('myAdminApp')
+myAdminApp
 .controller('EditRessourceCtrl', function ($scope,Ressource,$routeParams,$location) {
 
 	  $scope.state = "new";
-    //Check if we have a ressource
+    // Check if we have a ressource
     if ($routeParams.id) {
         $scope.state = "update";
         Ressource.findByIdRes($routeParams.id).then(function (response) {
@@ -35,7 +35,7 @@ angular.module('myAdminApp')
 	  
 });
 
-angular.module('myAdminApp')
+myAdminApp
 .controller('RessourceCtrl', function ($scope,Ressource,$routeParams,$location) {
 
 	  Ressource.findByIdRes($routeParams.id).success(function(resp){
@@ -52,9 +52,3 @@ angular.module('myAdminApp')
     }
 	  
 });
-
-
-
-
-
-
