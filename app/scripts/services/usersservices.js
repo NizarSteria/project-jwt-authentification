@@ -1,7 +1,7 @@
 "use strict";
 
-myAdminApp.factory("User", function ($http) {
-    var API_URI = '/api/users';
+myAdminApp.factory("UserService", function ($http) {
+    var API_URI = 'http://localhost:8081/outilgestion/api/users';
 
     return {
 
