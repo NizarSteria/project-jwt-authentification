@@ -1,0 +1,46 @@
+<div class="container">
+	<h1>Projet detail</h1>
+	<form name='projetForm' class="my-form" novalidate>
+		<!--         <div ng-repeat="proj in projet"> -->
+		<div class="projetcode" ng-class="{true:'error'}[submitted && projetForm.codeProjet.$error]">
+			<label for="codeProjet">Code * </label>
+			 <input type="text"	class="form-control" name="codeProjet" placeholder="code"
+				ng-model="projet.codeProjet" ng-pattern="CODE_REGEXP" required>
+				<span ng-show="submitted && projetForm.codeProjet.$error.required" class="error">Please enter the code</span><br/>
+				<span ng-show="submitted && projetForm.codeProjet.$error.pattern" class="error">Code name should start with letter & can contain numbers & _.-</span>
+		</div>
+
+		<div class="form-group">
+			<label for="dateDebut">Date de debut *</label> <input type="text"
+				class="form-control" id="dateDebut" placeholder="Date de debut"
+				ng-model="projet.dateDebut" datepicker-popup="{{ dateFormat }}"
+				required> 
+				<span>{{ errors.dateDebut }}</span> 
+				<span ng-show="projetForm.dateDebut.$error.date"> Format incorrect </span>
+		</div>
+
+		<div class="form-group">
+			<label for="dateFin">Date de fin * </label> <input type="text"
+				class="form-control" id="dateFin" placeholder="Date de fin"
+				ng-model="projet.dateFin" datepicker-popup="{{ dateFormat }}" required>
+				<span>{{ errors.dateFin }}</span> 
+				<span ng-show="projetForm.dateFin.$error.date"> Format incorrect </span>
+				
+		</div>
+		<div class="form-group">
+			<label for="desciption">Description </label> <input type="text"
+				class="form-control" id="desciption" placeholder="desciption"
+				ng-model="projet.descProjet">
+		</div>
+		<div class="form-group">
+			<label for="budgetTotal">Budget totale </label> <input type="text"
+				class="form-control" id="budgetTotal" placeholder="budget totale"
+				ng-model="projet.budgetTotal">
+		</div>
+		<!--         </div> -->
+	</form>
+	<div class="actions">
+		<a class="btn btn-lg btn-success" ng-disabled="projetForm.$invalid"
+			ng-click="submit()">{{getBtnLabel()}}</a>
+	</div>
+</div>

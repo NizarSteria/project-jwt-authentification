@@ -1,0 +1,21 @@
+<div class="container">
+	<h1>Societe detail</h1>
+	<div class="societe">
+		<img width="128" height="128" ng-src="images/Icon-user.png"
+			class="img-rounded">
+		<div class="infos">
+			<ul>				
+				<li><span>Code: </span> {{societe.codeSociete}}</li>
+				<li><span>Libelle: </span>{{societe.libelleSociete}}</li>
+
+			</ul>
+
+		</div>
+		<div class="actions">
+			<a class="btn btn-lg btn-success"
+				ng-href="#/editSociete/{{societe.idSociete}}">Modify</a> <a
+				class="btn btn-lg btn-success" ng-click="delete()">Delete</a>
+		</div>
+	</div>
+</div>
+

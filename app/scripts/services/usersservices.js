@@ -2,28 +2,35 @@
 
 myAdminApp.factory("UserService", function ($http) {
     var API_URI = 'http://localhost:8081/outilgestion/api/users';
+    
 
     return {
 
-    	loadRessources : function() {
+    	loadUsers : function() {
             return $http.get(API_URI);
         },
 
-        createRessource : function(ressource) {
-            return  $http.post(API_URI, ressource);
+        createUser : function(user) {
+            return  $http.post(API_URI, user);
         },
 
-        deleteRessource  : function(id) {
+        deleteUser  : function(id) {
             return $http.delete(API_URI + '/' + id);
         },
 
-        findByIdRes : function(id) {
+        findById : function(id) {
             return $http.get(API_URI + '/' + id);
         },
 
-        update : function(ressource) {
-             return $http.put(API_URI, ressource);
+        findByUser : function(user) {
+            return $http.get(API_URI + '/login/' + user);
+        },
+
+        update : function(user) {
+             return $http.put(API_URI, user);
         }
+        
+
 
     };
 

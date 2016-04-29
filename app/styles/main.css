@@ -4,6 +4,10 @@ body {
     color: #333;
 }
 
+.help-block {
+    font-size: 12px;
+}
+
 .hero-unit {
     margin: 50px auto 0 auto;
     max-width: 800px;
@@ -61,4 +65,21 @@ body {
 .projetAction{
     margin-left: 15px;
     cursor: pointer;
+}
+
+form[name='my-form']
+{
+	box-shadow: 1px 2px 12px 4px #E7E7E7;
+	width: 500px;
+	margin: 0px auto;
+	border-radius:15px;
+	padding-top: 18px;
+}
+
+.error
+{
+	margin-left: 114px;
+	color:#ff0000;
+	font-style:italic;
+	font-size:12px;
 }

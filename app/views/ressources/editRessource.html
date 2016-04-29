@@ -1,0 +1,31 @@
+
+<div class="container">
+    <h1>Ressource detail</h1>
+    <form name='ressourceForm' class="my-form" novalidate>
+        <div class="form-group">
+            <label for="prestataire">Prestataire *</label>
+            <input type="text" class="form-control" id="prestataire" placeholder="Prestataire" ng-model="ressource.prestataire" required>
+        </div>
+       
+       <div class="form-group">
+            <label for="profil">Profil *</label>
+			<select ng-model="ressource.tjmSocieteProfil.profil.codeProfil"  class="form-control">
+				<option ng-repeat="profil in profils" title="{{profil.codeProfil}}" value="{{profil.codeProfil}}">{{profil.libelleProfil}}</option>
+			</select>
+        </div>
+        
+        <div class="form-group">
+            <label for="societe">Societe</label>
+            <input type="text" class="form-control" id="societe" placeholder="Societe" ng-model="ressource.tjmSocieteProfil.societe.codeSociete">
+        </div>
+         
+        <div class="form-group">
+            <label for="tjm">TJM</label>
+            <input type="text" class="form-control" id="tjm" placeholder="Tjm " ng-model="ressource.tjmSocieteProfil.tjm" >
+        </div>
+        
+    </form>
+    <div class="actions">
+        <a class="btn btn-lg btn-success" ng-disabled="ressourceForm.$invalid"  ng-click="submit()">{{getBtnLabel()}}</a>
+    </div>
+</div>

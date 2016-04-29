@@ -1,0 +1,23 @@
+<div class="container">
+	<h1>Ressource detail</h1>
+	<div class="profil">
+		<img width="128" height="128" ng-src="images/Icon-user.png"
+			class="img-rounded">
+		<div class="infos">
+			<ul>				
+				<li><span>Prestataire: </span> {{ressource.prestataire}}</li>
+				<li><span>Profil: </span>{{ressource.tjmSocieteProfil.profil.codeProfil}}</li>
+				<li><span>Societe: </span>{{ressource.tjmSocieteProfil.societe.codeSociete}}</li>
+				<li><span>TJM: </span>{{ressource.tjmSocieteProfil.tjm}}</li>
+
+			</ul>
+
+		</div>
+		<div class="actions">
+			<a class="btn btn-lg btn-success"
+				ng-href="#/editRessource/{{ressource.idRessource}}">Modify</a> <a
+				class="btn btn-lg btn-success" ng-click="delete()">Delete</a>
+		</div>
+	</div>
+</div>
+

@@ -1,0 +1,28 @@
+<div class="container">
+	<h1>Projet detail</h1>
+	<div class="projet">
+		<img width="128" height="128" ng-src="images/projetlogo.png"
+			alt="projet picture" class="img-rounded">
+		<div class="infos">
+			<ul>
+				<!--             <ul ng-repeat="proj in projet"> -->
+
+				<!--                 <li><span>id: </span> {{proj.idProjet}}</li> -->
+				<li><span>Code: </span>{{projet.codeProjet}}</li>
+				<li><span>Date de debut: </span>{{projet.dateDebut|formatDate}}</li>
+				<li><span>Date de fin: </span>{{projet.dateFin | formatDate}}</li>
+				<li><span>Description: </span>{{projet.descProjet}}</li>
+				<li><span>Budget totale: </span>{{projet.budgetTotal}}</li>
+
+
+			</ul>
+			<div class="actions">
+				<a class="btn btn-lg btn-success"
+					ng-href="#/edit/{{projet.idProjet}}">Modify</a> <a
+					class="btn btn-lg btn-success" ng-click="delete()">Delete</a>
+			</div>
+
+		</div>
+
+	</div>
+</div>

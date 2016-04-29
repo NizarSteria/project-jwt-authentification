@@ -1,0 +1,29 @@
+<div class="container">
+	<div class="">
+		<form class="form-inline" role="form">
+			<div class="form-group">
+				<label class="sr-only" for="search">Filter</label> <input
+					id="search" type="text" class="form-control"
+					placeholder="Filter ..." ng-model="search">
+			</div>
+		</form>
+	</div>
+	<h2 class="page-header">{{societes.length}} societes found</h2>
+	<div class="table-responsive">
+		<table class="table table-striped">
+			<thead>
+				<tr>	  <th>Code Societe</th><th>Libelle</th> 
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="societe in societes | filter:search">
+					<td><a href="#/societe/{{societe.idSociete}}">{{societe.codeSociete}}</a></td>
+					<td>{{societe.libelleSociete}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="actions">
+		<a class="btn btn-lg btn-success" ng-href="#/editSociete/">Ajouter</a>
+	</div>
+</div>

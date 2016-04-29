@@ -2,7 +2,7 @@
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title></title>
+<title>Outil de gestion des préstataires</title>
 <meta name="description" content="">
 <meta name="viewport" content="width=device-width">
 <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
@@ -10,6 +10,11 @@
 <!-- bower:css -->
 <link rel="stylesheet"
 	href="bower_components/bootstrap/dist/css/bootstrap.css" />
+
+<link rel="stylesheet"
+	href="bower_components/bootstrap.css/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="bower_components/fontawesome/css/font-awesome.min.css">
 <!-- endbower -->
 <!-- endbuild -->
 <!-- build:css({.tmp,app}) styles/main.css -->
@@ -20,49 +25,85 @@
 	<div class="container">
 		<div class="header">
 			<ul class="nav nav-pills pull-right">
-				<li><a href="#/">Home</a></li>
-				<li><a href="#/list">all projets</a></li>
-				<!--             <li><a href="#/edit">edit</a></li> -->
-				<!--             <li><a href="#/projet/1">a projet</a></li> -->
-				<li><a href="#/ressources">all ressources</a></li>
-				<li><a href="#/users">all users</a></li>
-				<!--             <li><a href="#/editRessource">edit ressource</a></li> -->
-				<!--             <li><a href="#/ressource/1">a ressource</a></li> -->
-				<li><a href="#/help">Help</a></li>
-
+				<li><a ng-href="#/home">Home</a></li>
+				<li><a ng-href="#/list">all projets</a></li>
+				<li><a ng-href="#/ressources">all ressources</a></li>
+				<li><a ng-href="#/profils">all profils</a></li>
+				<li><a ng-href="#/societes">all societes</a></li>
+				<li><a ng-href="#/login">Login</a></li>
+				<li><a ng-href="#/register">Register</a></li>
+				<li><a ng-href="#/help">Help</a></li>
+<!-- 				<li ng-hide="MainCtrl.logged"><a ng-click="MainCtrl.login()">Login</a></li> -->
+<!-- 				<li ng-show="MainCtrl.logged"><a ng-click="MainCtrl.logout()">Logout</a></li> -->
 			</ul>
+
 			<h3 class="text-muted">Outil de gestion</h3>
 		</div>
 	</div>
 
 	<!-- partie principale -->
-	<section class="container" ng-view></section>
+	<!-- 	<section class="container" ng-view></section> -->
+
+
+	<!-- partie principale -->
+<!-- 	<div ng-show="loading" class="modal-loading text-center"> -->
+<!-- 		<i class="fa fa-spinner fa-spin fa-5x"></i> -->
+<!-- 	</div> -->
+	<div class="container" ui-view=""></div>
+
 
 	<script type="text/javascript" src="bower_components/jquery/jquery.js"></script>
 	<script type="text/javascript"
 		src="bower_components/angular/angular.js"></script>
 	<script type="text/javascript"
-		src="bower_components/angular-route/angular-route.js"></script>
-<!-- 	<script type="text/javascript" -->
-<!-- 		src="bower_components/angular-i18n/angular-locale_fr-fr.js"></script> -->
+		src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
 	<script type="text/javascript"
-		src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+		src="bower_components/bootstrap.css/js/bootstrap.js"></script>
+	<script type="text/javascript"
+		src="bower_components/angular-translate/angular-translate.js"></script>
+	<script type="text/javascript"
+		src="bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.js"></script>
+	<script type="text/javascript"
+		src="bower_components/angular-cookies/angular-cookies.js"></script>
+	<!-- <script type="text/javascript" src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script> -->
+	<script type="text/javascript"
+		src="bower_components/angular-bootstrap/ui-bootstrap-tpls-0.10.0.min.js"></script>
+
 	<script type="text/javascript" src="scripts/app.js"></script>
+	
+<!-- 	<script type="text/javascript"	src="scripts/interceptors/interceptors.module.js"></script> -->
+<!-- 	<script type="text/javascript"		src="scripts/interceptors/errInterceptors.constant.js"></script> -->
+<!-- 	<script type="text/javascript"		src="scripts/interceptors/errInterceptors.service.js"></script> -->
+
+	<script src="scripts/constants/constants.js"></script>
+	<script src="scripts/google/date.js"></script>
+	<script src="scripts/bootstrap/ui-bootstrap-tpls-0.10.0.min.js"></script>
+	
+	<!-- login and register -->
+	<script src="scripts/services/authentication.service.js"></script>
+	<script src="scripts/services/flash.service.js"></script>
+	<script src="scripts/services/usersservices.js"></script>
+
+<!-- 	<script type="text/javascript" src="scripts/services/Auth.service.js"></script> -->
+<!-- 	<script type="text/javascript"		src="scripts/controllers/login.controller.js"></script> -->
 	<script src="scripts/controllers/main.js"></script>
-	<script src="scripts/controllers/list.js"></script>
-	<script src="scripts/controllers/projet.js"></script>
-	<script src="scripts/controllers/users.js"></script>
-	<script src="scripts/controllers/edit.js"></script>
-	<script src="scripts/controllers/ressources.js"></script>
-	<script src="scripts/controllers/editRessource.js"></script>
-	<script src="scripts/controllers/ressource.js"></script>
-	<script type="text/javascript" src="scripts/services/services.js"></script>
-	<script type="text/javascript"
-		src="scripts/services/servicesressources.js"></script>
-		<script type="text/javascript"
-		src="scripts/services/usersservices.js"></script>
-	<!-- <script type="text/javascript" src="scripts/filters.js"></script> -->
-	<!-- <script type="text/javascript" src="scripts/directives.js"></script> -->
+	<script src="scripts/controllers/login/login.controller.js"></script>
+	<script src="scripts/controllers/register/register.controller.js"></script>
+	
+	<script src="scripts/controllers/projets/list.js"></script>
+	<script src="scripts/controllers/projets/projet.js"></script>
+<!-- 	<script src="scripts/controllers/users.js"></script> -->
+	<script src="scripts/controllers/projets/edit.js"></script>
+	<script src="scripts/controllers/ressources/ressources.js"></script>
+	<script src="scripts/controllers/profils/profils.js"></script>
+	<script src="scripts/controllers/societes/societes.js"></script>
+
+	<script type="text/javascript" src="scripts/services/servicesprojets.js"></script>
+	<script type="text/javascript" src="scripts/services/servicesressources.js"></script>
+	<script type="text/javascript" src="scripts/services/servicesprofils.js"></script>
+	<script type="text/javascript" src="scripts/services/servicessocietes.js"></script>
+	<script type="text/javascript" src="scripts/directives/profile.js"></script>
+	<script type="text/javascript" src="scripts/filters/filters.js"></script>
 
 </body>
 </html>

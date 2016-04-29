@@ -1,0 +1,32 @@
+<div class="container">
+	<div class="">
+		<form class="form-inline" role="form">
+			<div class="form-group">
+				<label class="sr-only" for="search">Filter</label> <input
+					id="search" type="text" class="form-control"
+					placeholder="Filter ..." ng-model="search">
+			</div>
+		</form>
+	</div>
+	<h2 class="page-header">{{ressources.length}} ressources found</h2>
+	<div class="table-responsive">
+		<table class="table table-striped">
+			<thead>
+				<tr>	<th>Prestataire</th> <th>Profil</th><th>Societe</th><th>TJM</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="ressource in ressources | filter:search">
+					<!--                 <td>{{ressource.id}}</td> -->
+					<td><a href="#/ressource/{{ressource.idRessource}}">{{ressource.prestataire}}</a></td>
+					<td>{{ressource.tjmSocieteProfil.profil.codeProfil}}</td>
+					<td>{{ressource.tjmSocieteProfil.societe.codeSociete}}</td>
+					<td>{{ressource.tjmSocieteProfil.tjm}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="actions">
+		<a class="btn btn-lg btn-success" ng-href="#/editRessource/">Ajouter</a>
+	</div>
+</div>

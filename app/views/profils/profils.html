@@ -1,0 +1,30 @@
+<div class="container">
+	<div class="">
+		<form class="form-inline" role="form">
+			<div class="form-group">
+				<label class="sr-only" for="search">Filter</label> <input
+					id="search" type="text" class="form-control"
+					placeholder="Filter ..." ng-model="search">
+			</div>
+		</form>
+	</div>
+	<h2 class="page-header">{{profils.length}} profils found</h2>
+	<div class="table-responsive">
+		<table class="table table-striped">
+			<thead>
+				<tr>	  <th>Code Profil</th><th>Libelle</th> 
+				</tr>
+			</thead>
+			<tbody>
+			<tr data-profil-info  profil="profil" ng-repeat="profil in profils | filter:{name:search}" ondelete="deleteProfil(profil)"></tr>
+<!-- 				<tr ng-repeat="profil in profils | filter:search"> -->
+<!-- 					<td><a href="#/profil/{{profil.idProfil}}">{{profil.codeProfil}}</a></td> -->
+<!-- 					<td>{{profil.libelleProfil}}</td> -->
+<!-- 				</tr> -->
+			</tbody>
+		</table>
+	</div>
+	<div class="actions">
+		<a class="btn btn-lg btn-success" ng-href="#/editProfil/">Ajouter</a>
+	</div>
+</div>

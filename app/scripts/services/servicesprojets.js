@@ -1,8 +1,8 @@
 "use strict";
 
 myAdminApp.factory("Projet", function ($http) {
-       var API_URI = '/projets';
-
+        var API_URI = 'http://localhost:8081/outilgestion/api/projets';
+	// var API_URI ="/projets";
     return {
 
     	loadProjets : function() {
@@ -21,7 +21,7 @@ myAdminApp.factory("Projet", function ($http) {
             return $http.get(API_URI + '/' + id);
         },
 
-        update : function(projet) {
+        updateProjet : function(projet) {
              return $http.put(API_URI, projet);
         }
 

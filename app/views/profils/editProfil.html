@@ -1,0 +1,19 @@
+
+<div class="container">
+    <h1>Profil detail</h1>
+    <form name='profilForm' class="my-form" novalidate>
+        <div class="form-group">
+            <label for="profil">Profil code *</label>
+            <input type="text" class="form-control" id="profil" placeholder="Profil" ng-model="profil.codeProfil" required>
+        </div>
+       
+       <div class="form-group">
+            <label for="libelle">Libelle Profil *</label>
+             <input type="text" class="form-control" id="libelle" placeholder="Libelle Profil" ng-model="profil.libelleProfil" required>			
+        </div>
+            
+    </form>
+    <div class="actions">
+        <a class="btn btn-lg btn-success" ng-disabled="profilForm.$invalid"  ng-click="submit()">{{getBtnLabel()}}</a>
+    </div>
+</div>

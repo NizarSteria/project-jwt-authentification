@@ -10,3 +10,9 @@ angular.module('myAdminApp')
             }
         };
   });
+
+angular.module('myAdminApp').filter('formatDate', function() {
+	return function( date ) {
+		return new Date( date ).toString( dateFormat );
+	};
+});

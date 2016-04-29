@@ -1,0 +1,9 @@
+<td><a href="#/profi/{{profil.idProfil}}">{{profil.codeProfil}}</a></td>
+<td>{{profil.libelleProfil}}</td>
+<td>
+    <span ng-show="displayAction">
+        <span class="profilAction glyphicon glyphicon-trash" ng-click="deleteProf()" title="delete"></span>
+        <a ng-href="#/profil/{{profil.idProfil}}"><span class="userAction glyphicon glyphicon-pencil"  title="edit"></a></span>
+    </span>
+</td>
+
