@@ -2,8 +2,8 @@
 
 	<h1>Consignes</h1>
 
-	<p>Vous devez créer une application budgétaire qui permet de suivre
-		les . L'application devra permettre de :</p>
+	<p>Application budgétaire qui permet de suivre
+		les préstataires. L'application devra permettre de :</p>
 	<ul>
 		<li><span>Visualiser une liste de
 				projets/ressources/profil/societe</span></li>
@@ -12,6 +12,25 @@
 		<li><span>Modifier un projet/ressource/profil/societe</span></li>
 		<li><span>Supprimer un projet/ressource/profil/societe</span></li>
 		<li><span>Créer un projet/ressource/profil/societe</span></li>
+	</ul>
+	<p>Vous disposez de l'api REST suivante:</p>
+	<ul>
+		<li><a href="http://localhost:8081/outilgestion/api/projets" target="_blank"><span>GET:/api/projets
+			</span></a>Pour récupérer la liste des projets</li>
+		<li><a href="http://localhost:8081/outilgestion/api/projets/1" target="_blank"><span>GET:/api/projets/1
+			</span></a>Pour récupérer un projet par son id</li>			
+		<li><span>POST:/api/projets </span>Pour ajouter un projet</li>
+		<li><span>PUT:/api/projets/:id </span>Pour modifier un projet</li>
+		<li><span>DELETE:/api/projets/:id </span>Pour supprimer un projet</li>
+		<li><a href="http://localhost:8081/outilgestion/api/users" target="_blank"><span>GET:/api/users
+			</span></a>Pour récupérer la liste des utilisateurs</li>
+		<li><a href="http://localhost:8081/outilgestion/api/profils" target="_blank"><span>GET:/api/profils
+			</span></a>Pour récupérer la liste des profils</li>
+		<li><a href="http://localhost:8081/outilgestion/api/societes" target="_blank"><span>GET:/api/societes
+			</span></a>Pour récupérer la liste des sociees</li>
+		<li><a href="http://localhost:8081/outilgestion/api/ressources" target="_blank"><span>GET:/api/ressources
+			</span></a>Pour récupérer la liste des ressources</li>
+
 	</ul>
 	<p>Pour cela, vous devez respecter les contraintes suivantes:</p>
 
@@ -27,25 +46,7 @@
 				partir de la liste)</span></li>
 	</ul>
 
-	<p>Vous disposez de l'api REST suivante:</p>
-	<ul>
-		<li><a href="http://localhost:8081/outilgestion/api/projets"><span>GET:/api/projets
-			</span></a>Pour récupérer la liste des projets</li>
-		<li><a href="http://localhost:8081/outilgestion/api/projets/1"><span>GET:/api/projets/1
-			</span></a>Pour récupérer un projet par son id</li>			
-		<li><span>POST:/api/projets </span>Pour ajouter un projet</li>
-		<li><span>PUT:/api/projets/:id </span>Pour modifier un projet</li>
-		<li><span>DELETE:/api/projets/:id </span>Pour supprimer un projet</li>
-		<li><a href="http://localhost:8081/outilgestion/api/users"><span>GET:/api/users
-			</span></a>Pour récupérer la liste des utilisateurs</li>
-		<li><a href="http://localhost:8081/outilgestion/api/profils"><span>GET:/api/profils
-			</span></a>Pour récupérer la liste des profils</li>
-		<li><a href="http://localhost:8081/outilgestion/api/societes"><span>GET:/api/societes
-			</span></a>Pour récupérer la liste des sociees</li>
-		<li><a href="http://localhost:8081/outilgestion/api/ressources"><span>GET:/api/ressources
-			</span></a>Pour récupérer la liste des ressources</li>
-
-	</ul>
+	
 
 
 </div>

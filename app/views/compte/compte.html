@@ -1,0 +1,21 @@
+<div class="container">
+	<h1>Profil detail</h1>
+	<div class="profil">
+		<img width="128" height="128" ng-src="images/Icon-user.png"
+			class="img-rounded">
+		<div class="infos">
+			<ul>				
+				<li><span>Code: </span> {{profil.codeProfil}}</li>
+				<li><span>Libelle: </span>{{profil.libelleProfil}}</li>
+
+			</ul>
+
+		</div>
+		<div class="actions">
+			<a class="btn btn-lg btn-success"
+				ng-href="#/editProfil/{{profil.idProfil}}">Modify</a> <a
+				class="btn btn-lg btn-success" ng-click="delete()">Delete</a>
+		</div>
+	</div>
+</div>
+

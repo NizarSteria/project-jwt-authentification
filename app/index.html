@@ -30,11 +30,14 @@
 				<li><a ng-href="#/ressources">all ressources</a></li>
 				<li><a ng-href="#/profils">all profils</a></li>
 				<li><a ng-href="#/societes">all societes</a></li>
-				<li><a ng-href="#/login">Login</a></li>
-				<li><a ng-href="#/register">Register</a></li>
+				<!-- 				<li ng-show="logged"><a ng-href="#/login">Login</a></li> -->
+				<li><a ng-href="#/suivi">Suivi Prestataire</a></li>
+				<li><a ng-href="#/compte">Compte</a></li>
+				<li><a ng-href="#/logout">Logout</a></li>
+				<!-- 				<li><a ng-href="#/register">Register</a></li> -->
 				<li><a ng-href="#/help">Help</a></li>
-<!-- 				<li ng-hide="MainCtrl.logged"><a ng-click="MainCtrl.login()">Login</a></li> -->
-<!-- 				<li ng-show="MainCtrl.logged"><a ng-click="MainCtrl.logout()">Logout</a></li> -->
+				<!-- 				<li ng-hide="MainCtrl.logged"><a ng-click="MainCtrl.login()">Login</a></li> -->
+				<!-- 				<li ng-show="MainCtrl.logged"><a ng-click="MainCtrl.logout()">Logout</a></li> -->
 			</ul>
 
 			<h3 class="text-muted">Outil de gestion</h3>
@@ -46,64 +49,70 @@
 
 
 	<!-- partie principale -->
-<!-- 	<div ng-show="loading" class="modal-loading text-center"> -->
-<!-- 		<i class="fa fa-spinner fa-spin fa-5x"></i> -->
-<!-- 	</div> -->
+	<!-- 	<div ng-show="loading" class="modal-loading text-center"> -->
+	<!-- 		<i class="fa fa-spinner fa-spin fa-5x"></i> -->
+	<!-- 	</div> -->
 	<div class="container" ui-view=""></div>
 
-
-	<script type="text/javascript" src="bower_components/jquery/jquery.js"></script>
-	<script type="text/javascript"
-		src="bower_components/angular/angular.js"></script>
-	<script type="text/javascript"
+	<!-- angular scripts -->
+	<script src="bower_components/jquery/jquery.js"></script>
+	<script src="bower_components/angular/angular.js"></script>
+	<script
 		src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-	<script type="text/javascript"
-		src="bower_components/bootstrap.css/js/bootstrap.js"></script>
-	<script type="text/javascript"
-		src="bower_components/angular-translate/angular-translate.js"></script>
-	<script type="text/javascript"
+	<script src="bower_components/bootstrap.css/js/bootstrap.js"></script>
+	<script src="bower_components/angular-translate/angular-translate.js"></script>
+	<script
 		src="bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.js"></script>
-	<script type="text/javascript"
-		src="bower_components/angular-cookies/angular-cookies.js"></script>
+	<script src="bower_components/angular-cookies/angular-cookies.js"></script>
 	<!-- <script type="text/javascript" src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script> -->
-	<script type="text/javascript"
+	<script
 		src="bower_components/angular-bootstrap/ui-bootstrap-tpls-0.10.0.min.js"></script>
 
+	<!-- application scripts -->
 	<script type="text/javascript" src="scripts/app.js"></script>
-	
-<!-- 	<script type="text/javascript"	src="scripts/interceptors/interceptors.module.js"></script> -->
-<!-- 	<script type="text/javascript"		src="scripts/interceptors/errInterceptors.constant.js"></script> -->
-<!-- 	<script type="text/javascript"		src="scripts/interceptors/errInterceptors.service.js"></script> -->
-
+	<!-- 	<script type="text/javascript"	src="scripts/interceptors/interceptors.module.js"></script> -->
+	<!-- 	<script type="text/javascript"		src="scripts/interceptors/errInterceptors.constant.js"></script> -->
+	<!-- 	<script type="text/javascript"		src="scripts/interceptors/errInterceptors.service.js"></script> -->
 	<script src="scripts/constants/constants.js"></script>
 	<script src="scripts/google/date.js"></script>
 	<script src="scripts/bootstrap/ui-bootstrap-tpls-0.10.0.min.js"></script>
-	
 	<!-- login and register -->
-	<script src="scripts/services/authentication.service.js"></script>
-	<script src="scripts/services/flash.service.js"></script>
-	<script src="scripts/services/usersservices.js"></script>
 
-<!-- 	<script type="text/javascript" src="scripts/services/Auth.service.js"></script> -->
-<!-- 	<script type="text/javascript"		src="scripts/controllers/login.controller.js"></script> -->
+	<!-- 	<script src="scripts/services/flash.service.js"></script> -->
+	<script src="scripts/services/usersservices.js"></script>
+	<!-- 	<script type="text/javascript" src="scripts/services/Auth.service.js"></script> -->
 	<script src="scripts/controllers/main.js"></script>
-	<script src="scripts/controllers/login/login.controller.js"></script>
+	<!-- 	<script src="scripts/controllers/login/login.controller.js"></script> -->
 	<script src="scripts/controllers/register/register.controller.js"></script>
-	
 	<script src="scripts/controllers/projets/list.js"></script>
 	<script src="scripts/controllers/projets/projet.js"></script>
-<!-- 	<script src="scripts/controllers/users.js"></script> -->
+	<!-- 	<script src="scripts/controllers/users.js"></script> -->
 	<script src="scripts/controllers/projets/edit.js"></script>
 	<script src="scripts/controllers/ressources/ressources.js"></script>
 	<script src="scripts/controllers/profils/profils.js"></script>
 	<script src="scripts/controllers/societes/societes.js"></script>
+	<script src="scripts/controllers/suivipresta/SuiviPresta.js"></script>
+	<script src="scripts/services/servicesprojets.js"></script>
+	<script src="scripts/services/servicesressources.js"></script>
+	<script src="scripts/services/servicesprofils.js"></script>
+	<script src="scripts/services/servicessocietes.js"></script>
+	<script src="scripts/directives/profile.js"></script>
+	<script src="scripts/filters/filters.js"></script>
+	<script src="views/compte/ng-iban.js"></script>
+	<script src="views/compte/ng-iban.min.js"></script>
+	<script src="scripts/controllers/compte/comptes.js"></script>
 
-	<script type="text/javascript" src="scripts/services/servicesprojets.js"></script>
-	<script type="text/javascript" src="scripts/services/servicesressources.js"></script>
-	<script type="text/javascript" src="scripts/services/servicesprofils.js"></script>
-	<script type="text/javascript" src="scripts/services/servicessocietes.js"></script>
-	<script type="text/javascript" src="scripts/directives/profile.js"></script>
-	<script type="text/javascript" src="scripts/filters/filters.js"></script>
-
+	<script src="scripts/controllers/login/index.controller.js"></script>
+	<script src="scripts/controllers/login/home.controller.js"></script>
+	<script src="scripts/services/authentication.service.js"></script>
+	<!-- scripts for fake backend -->
+	<script
+		src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular-mocks.js"></script>
+	<script
+		src="//cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.6/ngStorage.min.js"></script>
+	<script src="scripts/app-helpers/backend.js"></script>
+	<script
+		src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular-messages.min.js"></script>
+	<!--     <script src="//cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.6/ngStorage.min.js"></script> -->
 </body>
 </html>

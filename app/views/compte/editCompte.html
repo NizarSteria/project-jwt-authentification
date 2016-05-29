@@ -1,0 +1,64 @@
+
+<div class="container">
+	<h3>Compte detail</h3>
+	<form name="compteForm" class="my-form" novalidate>
+		<div>
+			<label class="col-xs-3 control-label" for="typeCompte">Type
+				de compte:</label>
+			<div class="col-xs-7">
+				<label> <input type="radio" name="rb-type" value="IBAN"
+					ng-model="checkiban" ng-click="RadioIban()" /> IBAN
+				</label> <label> <input type="radio" name="rb-type" value="Autre"
+					ng-model="checkautre" ng-click="RadioAutre()" /> Autre
+				</label>
+			</div>
+		</div>
+		<div>
+			<br>
+		</div>
+		<br>
+		<div ng-show="radioiban">
+			<label class="col-xs-3 control-label" for="iban">IBAN *</label>
+			<!-- FR1420041010050500013M02606 -->
+			<div class="col-xs-7">
+				<input type="text" name="iban" id="iban" ng-model="compte.iban"
+					class="form-control" ng-iban countrycodecheck='FR' /> <span
+					class="error" ng-if="compteForm.iban.$error.countrycodecheck"
+					ng-hide="compteForm.iban.$pristine">country code not
+					supported</span>
+			</div>
+		</div>
+		<br> <br>
+		<div ng-hide="radioiban">
+			<label class="col-xs-3 control-label" for="identifiant">Identifiant
+				*</label>
+			<div class="col-xs-7">
+				<input type="text" name="identifiant" id="identifiant"
+					ng-model="compte.identifiant" class="form-control" />
+			</div>
+		</div>
+		<br> <br>
+		<div>
+			<label class="col-xs-3 control-label" for="libelle">Libelle </label>
+			<div class="col-xs-7">
+				<input type="text" name="libelle" id="libelle" ng-model="compte.libelle"
+					class="form-control" />
+			</div>
+		</div>
+		<br>
+		<div ng-show="radioiban">
+			<label class="col-xs-3 control-label" for="devise">Devise(s)
+				</label>
+			<div class="col-xs-3">
+				<input type="text" name="compte.devise" id="devise" ng-model="devise"
+					class="form-control" />
+			</div>
+		</div>
+		<br>
+		
+	</form>
+	<div class="actions">
+		<a class="btn btn-lg btn-success" ng-disabled="compteForm.$invalid"
+			ng-click="submit()">Ajouter</a>
+	</div>
+</div>

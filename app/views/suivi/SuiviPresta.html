@@ -1,0 +1,45 @@
+<div class="container">
+	<h2>Suivi prestataires</h2>
+
+	<div class="table-responsive">
+		<table class="table table-striped">
+			<tr>
+				<td><b>Projet</b></td>
+				<td><select>
+						<option ng-repeat="projet in projets">{{projet.descProjet}}</option>
+				</select></td>
+			</tr>
+			<tr>
+
+				<td><b>Prestataire</b></td>
+				<td><select>
+						<option ng-repeat="ressource in ressources">{{ressource.prestataire}}</option>
+				</select></td>
+			</tr>
+			<tr>
+
+				<td><b>Societe</b></td>
+				<td><select>
+						<option ng-repeat="societe in societes">{{societe.libelleSociete}}</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td><b>Profil</b></td>
+				<td><select>
+						<option ng-repeat="profil in profils">{{profil.libelleProfil}}</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td><b>Tjm</b></td>
+				<td><input type="text" class="" id="name" placeholder="Tjm"
+					ng-model="ressource.tjmSocieteProfil.tjm"></td>
+			</tr>
+		</table>
+
+
+	</div>
+	<div class="actions">
+
+		<a class="btn btn-lg btn-success">Search</a>
+	</div>
+</div>

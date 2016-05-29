@@ -1,7 +1,7 @@
 'use strict';
 // var myAdminApp = angular.module('myAdminApp', [ 'ngRoute','ui.bootstrap' ]);
 // 'angularMovieUI','angularMovieCore', 'app.interceptors'
-var myAdminApp = angular.module('myAdminApp', [ 'ui.router', 'ui.bootstrap','ngCookies' ]);
+var myAdminApp = angular.module('myAdminApp', [ 'ui.router', 'ui.bootstrap', 'ngCookies', 'ngMessages', 'ngStorage', 'ngMockE2E', 'mm.iban']);
 
 myAdminApp
 		.config(
@@ -15,12 +15,26 @@ myAdminApp
 						url : '/list',
 						templateUrl : 'views/projets/list.html',
 						controller : 'ListCtrl'
-					}).state('login', {
+					})
+					/*.state('login', {
 						url : '/login',
 						templateUrl : 'views/login/login.html',
 						controller : 'LoginController',
 						controllerAs: 'vm'			                
-					}).state('register', {
+					})*/
+					.state('logout', {
+						url : '/logout',
+						templateUrl : 'views/login/logout.html',
+						controller : 'Home.IndexController',
+						controllerAs: 'vm'			                
+					})
+					.state('login', {
+						url : '/login',
+						templateUrl : 'views/login/login.html',
+						controller : 'Login.IndexController',
+						controllerAs: 'vm'			                
+					})
+					.state('register', {
 						url : '/register',
 						templateUrl : 'views/register/register.html',
 						controller : 'RegisterController',
@@ -72,34 +86,54 @@ myAdminApp
 						url : '/societe/:id',
 						templateUrl : 'views/societes/societe.html',
 						controller : 'SocieteCtrl'
+					}).state('suivi', {
+						url : '/suivi',
+						templateUrl : 'views/suivi/SuiviPresta.html',
+						controller : 'ListSuiviPrestaCtrl'
+					})
+					.state('comte', {
+						url : '/compte',
+						templateUrl : 'views/compte/editCompte.html',
+						controller : 'EditCompteCtrl'
 					});
+//					.state('resultsuivi', {
+//						url : '/resultsuivi',
+//						templateUrl : 'views/suivi/resultsuivi.html',
+//						controller : 'ResultSuiviPresta'
+//					});
 					
 					$urlRouterProvider.otherwise('/login');
 
 					$httpProvider.defaults.headers.common["X-Requested-With"] = 'XMLHttpRequest';
+					
 					// AuthProvider.setURI('/server/auth');
 					// DATEPICKER
 					datepickerConfig.showWeeks = false;
 					datepickerPopupConfig.showButtonBar = false;
-				}).run(function($rootScope, $state, $cookieStore, $http) {
+				}).run(function($rootScope, $location, $localStorage, $cookieStore, $http) {
 			// GLOBAL
 			$rootScope.dateFormat = dateFormat;
 			$rootScope.CODE_REGEXP = CODE_REGEXP;
 			$rootScope.EMAIL_REGEXP = EMAIL_REGEXP;
-			 // keep user logged in after page refresh
-	        $rootScope.globals = $cookieStore.get('globals') || {};
-	        if ($rootScope.globals.currentUser) {
-	            $http.defaults.headers.common['Authorization'] = 'Basic ' + $rootScope.globals.currentUser.authdata; // jshint ignore:line
+
+			  // keep user logged in after page refresh
+	        if ($localStorage.currentUser) {
+	            $http.defaults.headers.common.Authorization = 'Bearer ' + $localStorage.currentUser.token;
 	        }
 
-	        /*$rootScope.$on('$locationChangeStart', function (event, next, current) {
-	            // redirect to login page if not logged in and trying to access a restricted page
-	            var restrictedPage = $.inArray($state.go(), ['/login', '/register']) === -1;
-	            var loggedIn = $rootScope.globals.currentUser;
-	            if (restrictedPage && !loggedIn) {
-	            	$state.go('/login');
-	            }
-	        });*/
+	        // redirect to login page if not logged in and trying to access a restricted page
+	        $rootScope.$on('$locationChangeStart', function (event, next, current) {
+	        	 var publicPages = ['/login'];
+	             var restrictedPage = publicPages.indexOf($location.path()) === -1;
+	             if (restrictedPage && !$localStorage.currentUser) {
+	                 $location.path('/login');
+	             }
+	        })
+		});
+			/*$rootScope.globals = $cookieStore.get('globals') || {};
+	        if ($rootScope.globals.currentUser) {
+	            $http.defaults.headers.common['Authorization'] = 'Basic ' + $rootScope.globals.currentUser.authdata; // jshint ignore:line
+	        }*/	        
 
 			
-		});
+	 

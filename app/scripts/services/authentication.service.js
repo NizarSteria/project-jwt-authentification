@@ -1,4 +1,59 @@
 ﻿(function () {
+    'use strict';
+
+    angular
+        .module('myAdminApp')
+        .factory('AuthenticationService', Service);
+
+    function Service($http, $localStorage,UserService) {
+        var service = {};
+        var API_URI = 'http://localhost:8081/outilgestion/api/users';
+
+        service.Login = Login;
+        service.Logout = Logout;
+
+        return service;
+
+        function Login(username, password, callback) {
+//        	 var response;
+//             UserService.findByUser(username)
+//                 .then(function (user) {
+//                     if (user !== null && user.password === password) {
+//                         response = { success: true };
+//                     } else {
+//                         response = { success: false, message: 'Username or password is incorrect' };
+//                     }
+//                     callback(response);
+//                 });
+        	UserService.findByUser(username)
+            //$http.post(API_URI, { username: username, password: password })
+                .success(function (response) {
+                    // login successful if there's a token in the response
+                    if (response != null && response.password === password) {
+                        // store username and token in local storage to keep user logged in between page refreshes
+                        $localStorage.currentUser = { username: username, token: 'fake-jwt-token' };
+
+                        // add jwt token to auth header for all requests made by the $http service
+                        $http.defaults.headers.common.Authorization = 'Bearer fake-jwt-token' ;
+
+                        // execute callback with true to indicate successful login
+                        callback(true);
+                    } else {
+                        // execute callback with false to indicate failed login
+                        callback(false);
+                    }
+                });
+        }
+
+        function Logout() {
+            // remove user from local storage and clear http auth header
+            delete $localStorage.currentUser;
+            $http.defaults.headers.common.Authorization = '';
+        }
+    }
+})();
+
+/*(function () {
 	'use strict';
 
     angular
@@ -21,7 +76,7 @@
 			 * Dummy authentication for testing, uses $timeout to simulate api
 			 * call ----------------------------------------------
 			 */
-            $timeout(function () {
+  /*          $timeout(function () {
                 var response;
                 UserService.findByUser(username)
                     .then(function (user) {
@@ -44,7 +99,7 @@
             // callback(response);
             // });
 
-        }
+    /*    }
 
         function SetCredentials(username, password) {
             var authdata = Base64.encode(username + ':' + password);
@@ -150,4 +205,4 @@
         }
     };
 
-})();
+})();*/

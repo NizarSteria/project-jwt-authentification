@@ -10,7 +10,7 @@ angular.module('myAdminApp')
 	  $scope.delete=function(){
           var r = confirm("Voulez vous supprimer ce projet ?");
           if (r == true) {
-        	  Projet.deleteProjet($scope.projet.id).then(function(){
+        	  Projet.deleteProjet($scope.projet.idProjet).then(function(){
                   //$location.path('/list');
                   $state.go('list');
               })
