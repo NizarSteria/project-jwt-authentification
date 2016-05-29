@@ -24,8 +24,7 @@
 				<input type="text" name="iban" id="iban" ng-model="compte.iban"
 					class="form-control" ng-iban countrycodecheck='FR' /> <span
 					class="error" ng-if="compteForm.iban.$error.countrycodecheck"
-					ng-hide="compteForm.iban.$pristine">country code not
-					supported</span>
+					ng-hide="compteForm.iban.$pristine">Veuillez saisir l'IBAN d'un compte d'une banque europeenne.</span>
 			</div>
 		</div>
 		<br> <br>
